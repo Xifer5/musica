@@ -1,0 +1,1 @@
+if(!document.querySelector('link[rel="manifest"]'))document.head.insertAdjacentHTML('beforeend','<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="app-icon.svg">');if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));

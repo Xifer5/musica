@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f0e3">
+  <title>Rutas de aprendizaje — La Clave</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="routes.css">
+</head>
+<body>
+  <a class="skip-link" href="#routes-main">Saltar a las rutas</a>
+  <header class="topbar">
+    <a class="brand" href="routes.html" aria-label="La Clave, inicio"><span class="brand-mark" aria-hidden="true">𝄞</span><span><strong>La Clave</strong><small>teoría para tocar</small></span></a>
+    <div class="top-actions"><button class="icon-button" id="theme-toggle" aria-label="Cambiar tema">◐</button><button class="avatar" aria-label="Perfil local">DO</button></div>
+  </header>
+  <aside class="rail" aria-label="Navegación principal">
+    <a class="rail-item active" href="routes.html"><span aria-hidden="true">⌂</span><small>Aprender</small></a>
+    <a class="rail-item" href="index.html#lab"><span aria-hidden="true">♩</span><small>Explorar</small></a>
+    <button class="rail-item" id="practice-nav"><span aria-hidden="true">✓</span><small>Practicar</small></button>
+    <button class="rail-item" id="progress-nav"><span aria-hidden="true">◔</span><small>Progreso</small></button>
+  </aside>
+
+  <main class="routes-main" id="routes-main">
+    <section class="route-intro">
+      <div><span class="eyebrow">TU CAMINO MUSICAL</span><h1>Aprende a tu ritmo.<br><em>Toca con sentido.</em></h1><p>Elige una ruta o continúa donde lo dejaste. Todo el contenido es libre y puedes cambiar de nivel cuando quieras.</p></div>
+      <aside class="continue-panel">
+        <span class="eyebrow">CONTINUAR</span><h2>Sonido, pulso y ritmo</h2><p>Fundamentos · Lección 1 de 8</p>
+        <div class="progress-line"><span id="hero-progress"></span></div>
+        <a class="primary-button" href="lesson.html?id=pulso">Continuar lección <span aria-hidden="true">→</span></a>
+      </aside>
+    </section>
+
+    <section class="level-section" aria-labelledby="level-title">
+      <div class="section-heading"><div><span class="eyebrow">RUTAS FORMATIVAS</span><h2 id="level-title">¿Hasta dónde quieres llegar?</h2></div><div class="level-filter" role="tablist" aria-label="Filtrar niveles"><button role="tab" aria-selected="true" data-filter="all">Todas</button><button role="tab" aria-selected="false" data-filter="principiante">Inicial</button><button role="tab" aria-selected="false" data-filter="intermedio">Intermedio</button><button role="tab" aria-selected="false" data-filter="avanzado">Avanzado</button><button role="tab" aria-selected="false" data-filter="guitarra">Guitarra</button></div></div>
+      <div class="route-list" id="route-list"></div>
+    </section>
+
+    <section class="catalog-section" aria-labelledby="catalog-title">
+      <div class="section-heading"><div><span class="eyebrow">BIBLIOTECA</span><h2 id="catalog-title">Próximas lecciones</h2></div><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Buscar lecciones</span><input id="lesson-search" type="search" placeholder="Buscar por tema"></label></div>
+      <div class="lesson-list" id="lesson-list"></div><p class="empty-state" id="empty-state" hidden>No encontramos lecciones con ese término.</p>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Navegación móvil"><a class="active" href="routes.html"><span>⌂</span><small>Aprender</small></a><a href="index.html#lab"><span>♩</span><small>Explorar</small></a><button id="mobile-practice"><span>✓</span><small>Practicar</small></button><button id="mobile-progress"><span>◔</span><small>Progreso</small></button></nav>
+  <div class="snackbar" id="snackbar" role="status" aria-live="polite"></div><script type="module" src="routes.js?v=27"></script>
+</body></html>

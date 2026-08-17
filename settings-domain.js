@@ -1,0 +1,3 @@
+export const DEFAULT_SETTINGS={notation:'both',accidentals:'sharps',theme:'light',sound:true,reducedMotion:false,largeText:false};
+export function normalizeSettings(value={}){return {notation:['latin','international','both'].includes(value.notation)?value.notation:DEFAULT_SETTINGS.notation,accidentals:value.accidentals==='flats'?'flats':'sharps',theme:value.theme==='dark'?'dark':'light',sound:value.sound!==false,reducedMotion:value.reducedMotion===true,largeText:value.largeText===true}}
+export function settingsLabel(settings){const s=normalizeSettings(settings);return `${s.notation==='both'?'Do / C':s.notation==='latin'?'Do':'C'} · ${s.accidentals==='flats'?'bemoles':'sostenidos'} · tema ${s.theme==='dark'?'oscuro':'claro'}`}

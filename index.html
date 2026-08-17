@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f0e3">
+  <title>La Clave — Aprende teoría musical</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#lesson">Saltar a la lección</a>
+  <header class="topbar">
+    <a class="brand" href="routes.html" aria-label="La Clave, inicio">
+      <span class="brand-mark" aria-hidden="true">𝄞</span>
+      <span><strong>La Clave</strong><small>teoría para tocar</small></span>
+    </a>
+    <div class="top-actions">
+      <button class="icon-button" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">◐</button>
+      <button class="avatar" aria-label="Perfil local">DO</button>
+    </div>
+  </header>
+
+  <aside class="rail" aria-label="Navegación principal">
+    <a class="rail-item active" href="routes.html"><span aria-hidden="true">⌂</span><small>Aprender</small></a>
+    <a class="rail-item" href="#lab"><span aria-hidden="true">♩</span><small>Explorar</small></a>
+    <button class="rail-item" id="practice-nav"><span aria-hidden="true">✓</span><small>Practicar</small></button>
+    <button class="rail-item" id="progress-nav"><span aria-hidden="true">◔</span><small>Progreso</small></button>
+  </aside>
+
+  <main>
+    <section class="lesson" id="lesson" aria-labelledby="lesson-title">
+      <nav class="crumbs" aria-label="Ruta de aprendizaje">
+        <span>Fundamentos</span><span aria-hidden="true">›</span><span>Acordes</span>
+      </nav>
+      <div class="lesson-meta">
+        <span class="eyebrow">LECCIÓN 1 · 8 MIN</span>
+        <span class="level-chip">Principiante</span>
+      </div>
+      <h1 id="lesson-title">Cómo se forma un acorde mayor</h1>
+      <p class="lead">Un acorde nace cuando varias notas suenan juntas. Hoy vas a construir uno desde cero y a reconocerlo en el pentagrama y en la guitarra.</p>
+
+      <div class="concept-block">
+        <span class="step-number">01</span>
+        <div>
+          <h2>Empieza por la tónica</h2>
+          <p>La <strong>tónica</strong> da nombre al acorde y funciona como su punto de reposo. En Do mayor, la tónica es <strong>Do</strong>.</p>
+        </div>
+      </div>
+
+      <div class="concept-block">
+        <span class="step-number">02</span>
+        <div>
+          <h2>Añade tercera y quinta</h2>
+          <p>Desde la tónica contamos los grados de la escala. Una tríada mayor usa la fórmula:</p>
+          <div class="formula" aria-label="Fórmula: uno, tres, cinco">
+            <span><b>1</b><small>Tónica</small></span><i>—</i><span><b>3</b><small>Tercera mayor</small></span><i>—</i><span><b>5</b><small>Quinta justa</small></span>
+          </div>
+          <p>Para Do mayor, esos grados son <strong id="lesson-notes">Do · Mi · Sol</strong>. La distancia interna siempre es de cuatro semitonos y luego tres.</p>
+        </div>
+      </div>
+
+      <aside class="callout">
+        <span aria-hidden="true">✦</span>
+        <p><strong>Idea clave</strong> La forma cambia al transponer, pero la fórmula 1–3–5 permanece.</p>
+      </aside>
+
+      <div class="lesson-footer">
+        <label class="check-control"><input type="checkbox" id="lesson-complete"><span>Marcar lección como aprendida</span></label>
+        <button class="primary-button" id="try-practice">Comprobar lo aprendido <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section class="lab" id="lab" aria-labelledby="lab-title">
+      <header class="lab-header">
+        <div><span class="eyebrow">LABORATORIO SONORO</span><h2 id="lab-title">Explora el acorde</h2></div>
+        <button class="icon-button" id="reset-button" aria-label="Restablecer a Do mayor" title="Restablecer">↺</button>
+      </header>
+
+      <div class="chord-picker">
+        <label>Nota raíz
+          <select id="root-select">
+            <option value="0">Do / C</option><option value="1">Do♯ / C♯</option><option value="2">Re / D</option><option value="3">Re♯ / D♯</option><option value="4">Mi / E</option><option value="5">Fa / F</option><option value="6">Fa♯ / F♯</option><option value="7">Sol / G</option><option value="8">Sol♯ / G♯</option><option value="9">La / A</option><option value="10">La♯ / A♯</option><option value="11">Si / B</option>
+          </select>
+        </label>
+        <label>Tipo de acorde
+          <select id="quality-select">
+            <option value="major">Mayor</option><option value="minor">Menor</option><option value="dominant7">Séptima dominante</option><option value="major7">Séptima mayor</option><option value="minor7">Menor séptima</option><option value="diminished">Disminuido</option><option value="augmented">Aumentado</option><option value="sus2">Suspendido 2</option><option value="sus4">Suspendido 4</option>
+          </select>
+        </label>
+        <div class="chord-identity"><strong id="chord-name">Do mayor</strong><span id="chord-symbol">C</span></div>
+      </div>
+
+      <div class="view-tabs" role="tablist" aria-label="Representación musical">
+        <button role="tab" aria-selected="true" data-view="both">Ambas</button>
+        <button role="tab" aria-selected="false" data-view="staff">Pentagrama</button>
+        <button role="tab" aria-selected="false" data-view="guitar">Guitarra</button>
+      </div>
+
+      <div class="visual-grid" data-view="both">
+        <figure class="music-card staff-card">
+          <figcaption><span>Pentagrama</span><small id="staff-caption">Do4 · Mi4 · Sol4</small></figcaption>
+          <div id="staff" class="staff" role="img" aria-label="Acorde Do mayor: Do cuatro, Mi cuatro y Sol cuatro"></div>
+        </figure>
+        <figure class="music-card guitar-card">
+          <figcaption><span>Guitarra</span><small id="guitar-caption">Posición abierta</small></figcaption>
+          <div id="guitar" class="guitar" role="img" aria-label="Diagrama de guitarra para Do mayor"></div>
+        </figure>
+      </div>
+
+      <div class="chord-formula" id="chord-formula" aria-live="polite">Fórmula: 1 · 3 · 5</div>
+      <div class="note-strip" id="note-strip" aria-live="polite"></div>
+
+      <div class="transport">
+        <button class="play-button" id="play-chord"><span aria-hidden="true">▶</span><span>Escuchar acorde</span></button>
+        <button class="secondary-button" id="play-arpeggio">Arpegio</button>
+        <div class="transpose" aria-label="Transponer acorde"><button id="down" aria-label="Bajar un semitono">−</button><span>TRANSPONER</span><button id="up" aria-label="Subir un semitono">+</button></div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Navegación móvil">
+    <a class="active" href="routes.html"><span>⌂</span><small>Aprender</small></a><a href="#lab"><span>♩</span><small>Explorar</small></a><button id="mobile-practice"><span>✓</span><small>Practicar</small></button><button id="mobile-progress"><span>◔</span><small>Progreso</small></button>
+  </nav>
+
+  <dialog id="practice-dialog" aria-labelledby="practice-title">
+    <form method="dialog" class="dialog-content">
+      <button class="dialog-close" value="cancel" aria-label="Cerrar">×</button>
+      <span class="eyebrow">PRÁCTICA RÁPIDA</span>
+      <h2 id="practice-title">¿Cuál es la fórmula de una tríada mayor?</h2>
+      <div class="answer-list">
+        <button value="wrong" data-answer="wrong">1–♭3–5</button>
+        <button value="correct" data-answer="correct">1–3–5</button>
+        <button value="wrong" data-answer="wrong">1–4–5</button>
+      </div>
+      <p id="practice-feedback" class="feedback" aria-live="polite"></p>
+    </form>
+  </dialog>
+
+  <div class="snackbar" id="snackbar" role="status" aria-live="polite"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
