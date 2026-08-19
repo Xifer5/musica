@@ -3,3 +3,6 @@ export function notebookItem(root,type,voicing,{symbol,name}={}){return{id:voici
 export function parseNotebook(value){try{const parsed=JSON.parse(value||'[]');return Array.isArray(parsed)?parsed.filter(item=>item&&typeof item.id==='string'&&Array.isArray(item.frets)&&item.frets.length===6).slice(0,24):[]}catch{return[]}}
 export function toggleNotebook(items=[],item){return items.some(saved=>saved.id===item.id)?items.filter(saved=>saved.id!==item.id):[item,...items].slice(0,24)}
 export function isSaved(items=[],item){return items.some(saved=>saved.id===item.id)}
+const OPEN_STRING_MIDIS=[40,45,50,55,59,64]
+export function notebookMidis(item={}){return(item.frets||[]).map((fret,index)=>fret==='x'?null:OPEN_STRING_MIDIS[index]+Number(fret)).filter(Number.isFinite)}
+export function notebookPlaybackPlan(items=[]){return items.map((item,index)=>({id:item.id,symbol:item.symbol||'Acorde',midis:notebookMidis(item),delay:index*1.15}))}

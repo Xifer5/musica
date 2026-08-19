@@ -53,9 +53,15 @@ No conviene abrir `index.html` directamente porque el navegador debe cargar los 
 - Pentagrama por voicing con alturas reales y desglose de nota, traste y estado de las seis cuerdas.
 - Reproducción exacta de cada voicing, rasgueo, arpegio y escucha independiente cuerda por cuerda.
 - Cuaderno local de digitaciones favoritas con apertura, deduplicación y eliminación de posiciones guardadas.
+- Escucha individual y reproducción secuencial del cuaderno usando las alturas reales de cada digitación.
 - Lección de primeros acordes con cinco posiciones abiertas, digitación validada y entrenador de cambios.
 - Diagramas de guitarra compartidos entre laboratorios y pentagramas comparativos calculados por altura real.
 - Sistema visual M3 compartido con tipografía legible, tokens semánticos, estados, áreas táctiles y breakpoints comunes.
+- Capa de contenido Markdown estructurado integrada a las lecciones con objetivos pedagógicos y respaldo offline.
+- Entrenador de lectura en clave de sol con notas aleatorias, retroalimentación y marcador de aciertos.
+- Comparador de cinco parejas enarmónicas con escritura contextual en pentagrama y reproducción común.
+- Laboratorio de figuras y silencios con equivalencias visuales en 4/4, pulso audible y reproducción diferenciada.
+- Comparador métrico de 2/4, 3/4, 4/4 y 6/8 con agrupaciones y jerarquía audible de acentos.
 
 ## Pruebas
 
@@ -63,8 +69,8 @@ No conviene abrir `index.html` directamente porque el navegador debe cargar los 
 node tests.mjs
 ```
 
-Las 218 pruebas cubren el dominio cromático, escalas, armaduras, armonía, funciones, guitarra, afinación, acordes abiertos, ritmo, acompañamiento, diapasón, escalas, arpegios, armonía aplicada, biblioteca de acordes extendidos, escritura enarmónica, voicings reales, reproducción y cuaderno local, evaluación y progreso de guitarra, dominantes secundarios, intercambio modal, sustitución tritonal, rearmonización, arreglo, improvisación, navegación educativa, progreso, altura y octavas en pentagrama, sistema M3, inversiones, acordes con séptima, práctica, ajustes y digitaciones de guitarra.
+Las 259 pruebas cubren el dominio cromático, escalas, armaduras, armonía, funciones, guitarra, afinación, acordes abiertos, figuras, silencios, ritmo, compases simples y compuestos, acompañamiento, diapasón, escalas, arpegios, armonía aplicada, biblioteca de acordes extendidos, escritura y comparación enarmónica, voicings reales, reproducción, cuaderno local, contenido Markdown estructurado, posición y entrenamiento de notas en clave de sol, evaluación y progreso de guitarra, dominantes secundarios, intercambio modal, sustitución tritonal, rearmonización, arreglo, improvisación, navegación educativa, progreso, altura y octavas en pentagrama, sistema M3, inversiones, acordes con séptima, práctica, ajustes y digitaciones de guitarra.
 
 ## Próxima iteración sugerida
 
-Extraer las lecciones a Markdown estructurado, ampliar las digitaciones validadas y construir la pantalla de rutas para los niveles principiante, intermedio y avanzado.
+Completar la migración editorial de las lecciones intermedias y avanzadas al catálogo Markdown y ampliar las digitaciones validadas.
