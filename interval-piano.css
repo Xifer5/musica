@@ -1,0 +1,1 @@
+.interval-piano-card{margin:14px 0}.interval-piano-card h3{margin:3px 0;font:700 20px var(--serif)}.piano-key.target{box-shadow:inset 0 -12px 0 var(--secondary);color:var(--primary)}.piano-key.black.target{color:#fff}@media(max-width:650px){.interval-piano-card{margin:14px -20px}.piano-key.target{box-shadow:inset 12px 0 0 var(--secondary)}}

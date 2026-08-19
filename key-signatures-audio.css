@@ -1,0 +1,1 @@
+.key-audio-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.key-summary .key-audio-actions button{width:100%;min-height:48px;margin:0;justify-content:center;padding-inline:14px;font-size:14px}@media(max-width:520px){.key-audio-actions{grid-template-columns:1fr}.key-summary .key-audio-actions button{min-height:52px}}

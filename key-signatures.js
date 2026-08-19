@@ -1,4 +1,4 @@
-import {circleOfFifths,keySignature,keyScale,relativeMinor} from './key-signature-domain.js';
+import {circleOfFifths,keySignature,keyScale,relativeMinor,keyPlaybackPlan} from './key-signature-domain.js?v=46';
 import {fretboardPositions} from './scale-domain.js';
 import {midiFrequency} from './music-domain.js';
 import {readPreferences} from './preferences.js';

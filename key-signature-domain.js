@@ -21,3 +21,8 @@ export function circleOfFifths(){return DATA.map(key=>({...key,scale:[...key.sca
 export function keySignature(fifths=0){const safe=clamp(fifths),key=DATA[safe+7],kind=safe>0?'sharps':safe<0?'flats':'natural',accidentals=safe>0?SHARPS.slice(0,safe):safe<0?FLATS.slice(0,-safe):[];return {...key,kind,accidentals}}
 export function keyScale(fifths=0){return [...keySignature(fifths).scale]}
 export function relativeMinor(fifths=0){const key=keySignature(fifths);return {latin:key.minorLatin,intl:key.minorIntl,root:(key.root+9)%12}}
+export function keyPlaybackPlan(fifths=0,mode='major'){
+ const key=keySignature(fifths),relative=relativeMinor(fifths),root=mode==='minor'?relative.root:key.root,intervals=mode==='minor'?[0,2,3,5,7,8,10,12]:[0,2,4,5,7,9,11,12]
+ return intervals.map((interval,index)=>({midi:60+root+interval,delay:index*.22,degree:index===7?'8':String(index+1)}))
+}
+export function relativeRelationship(fifths=0){const key=keySignature(fifths),minor=relativeMinor(fifths);return {major:key.majorLatin,minor:minor.latin,sharedSignature:key.accidentals.length?key.accidentals.join(' · '):'sin alteraciones'}}

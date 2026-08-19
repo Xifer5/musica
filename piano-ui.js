@@ -1,0 +1,8 @@
+import {keySignature,keyScale} from './key-signature-domain.js?v=47'
+import {midiFrequency} from './music-domain.js?v=47'
+import {pianoOctave,pianoAriaLabel} from './piano-domain.js?v=47'
+let context
+const select=document.querySelector('#key-select'),keyboard=document.querySelector('#piano-keyboard'),caption=document.querySelector('#piano-caption')
+function sound(midi){context||=new AudioContext();const oscillator=context.createOscillator(),gain=context.createGain(),now=context.currentTime;oscillator.type='triangle';oscillator.frequency.value=midiFrequency(midi);gain.gain.setValueAtTime(.001,now);gain.gain.exponentialRampToValueAtTime(.13,now+.015);gain.gain.exponentialRampToValueAtTime(.001,now+.55);oscillator.connect(gain).connect(context.destination);oscillator.start(now);oscillator.stop(now+.58)}
+function render(){const key=keySignature(Number(select.value)),spellings=Array(12).fill(null);keyScale(key.fifths).forEach((name,index)=>spellings[(key.root+[0,2,4,5,7,9,11][index])%12]=name);const keys=pianoOctave(key.root,spellings);keyboard.innerHTML=keys.map(item=>`<button class="piano-key ${item.isBlack?'black':'white'} ${item.inScale?'in-scale':''} ${item.isRoot?'root':''}" data-midi="${item.midi}" aria-label="${pianoAriaLabel(item)}"><span>${item.name}</span><small>${item.isRoot?'Tónica':item.inScale?'Escala':''}</small></button>`).join('');keyboard.querySelectorAll('[data-midi]').forEach(button=>button.onclick=()=>sound(Number(button.dataset.midi)));caption.textContent=`Piano de ${key.majorLatin} mayor · toca cualquier tecla`}
+select.addEventListener('change',render);render()
