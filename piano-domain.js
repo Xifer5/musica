@@ -6,4 +6,8 @@ export function pianoOctave(root=0,names=SHARP,intervals=MAJOR){
  const safeRoot=normalizePitch(root),scale=new Set(intervals.map(step=>normalizePitch(safeRoot+step)))
  return Array.from({length:13},(_,index)=>{const pitch=index%12;return{index,pitch,midi:60+index,name:names[pitch]||SHARP[pitch],isBlack:BLACK.has(pitch),inScale:scale.has(pitch),isRoot:pitch===safeRoot}})
 }
+export function chromaticPianoFrom(root=0,names=SHARP){
+ const safeRoot=normalizePitch(root)
+ return Array.from({length:13},(_,index)=>{const pitch=normalizePitch(safeRoot+index);return{index,pitch,midi:60+safeRoot+index,name:names[pitch]||SHARP[pitch],isBlack:BLACK.has(pitch),inScale:true,isRoot:index===0}})
+}
 export function pianoAriaLabel(key){return`${key.name}${key.index===12?'5':'4'}${key.isRoot?', tónica':key.inScale?', pertenece a la escala':''}`}
