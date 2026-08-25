@@ -6,7 +6,8 @@ export const BEGINNER_LESSONS=[
  {id:'compases',title:'Compases',href:'lesson.html?id=compases'},
  {id:'tonos',title:'Tonos y semitonos',href:'lesson.html?id=tonos'},
  {id:'intervalos',title:'Intervalos',href:'lesson.html?id=intervalos'},
- {id:'acorde-mayor',title:'Cómo se forma un acorde mayor',href:'index.html'}
+ {id:'acorde-mayor',title:'Cómo se forma un acorde mayor',href:'lesson.html?id=acorde-mayor'},
+ {id:'acorde-menor',title:'Cómo se forma un acorde menor',href:'lesson.html?id=acorde-menor'}
 ];
 export function progressSummary(values={}){const completed=BEGINNER_LESSONS.filter(l=>values[`la-clave:${l.id}`]==='complete'||(l.id==='acorde-mayor'&&values['la-clave:lesson-1']==='complete'));const started=BEGINNER_LESSONS.filter(l=>values[`la-clave:${l.id}`]==='started');const next=BEGINNER_LESSONS.find(l=>!completed.some(c=>c.id===l.id))||BEGINNER_LESSONS.at(-1);const practice=Math.max(0,Math.min(100,Number(values['la-clave:practice-best'])||0));return {completed:completed.length,started:started.length,total:BEGINNER_LESSONS.length,percent:Math.round(completed.length/BEGINNER_LESSONS.length*100),practice,next,hasActivity:completed.length>0||started.length>0||practice>0}}
 import {LESSONS} from './routes-data.js';import {courseProgress} from './learning-progress-domain.js';

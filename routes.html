@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f0e3">
-  <title>Rutas de aprendizaje — La Clave</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="routes.css">
+  <title>Rutas de aprendizaje — La Clave</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="routes.css"><link rel="stylesheet" href="routes-progress.css">
 </head>
 <body>
   <a class="skip-link" href="#routes-main">Saltar a las rutas</a>
@@ -21,9 +21,9 @@
     <section class="route-intro">
       <div><span class="eyebrow">TU CAMINO MUSICAL</span><h1>Aprende a tu ritmo.<br><em>Toca con sentido.</em></h1><p>Elige una ruta o continúa donde lo dejaste. Todo el contenido es libre y puedes cambiar de nivel cuando quieras.</p></div>
       <aside class="continue-panel">
-        <span class="eyebrow">CONTINUAR</span><h2>Sonido, pulso y ritmo</h2><p>Fundamentos · Lección 1 de 8</p>
+        <span class="eyebrow">CONTINUAR</span><h2 id="continue-title">Sonido, pulso y ritmo</h2><p id="continue-meta">Fundamentos · Lección 1 de 9</p>
         <div class="progress-line"><span id="hero-progress"></span></div>
-        <a class="primary-button" href="lesson.html?id=pulso">Continuar lección <span aria-hidden="true">→</span></a>
+        <a class="primary-button" id="continue-link" href="lesson.html?id=pulso">Continuar lección <span aria-hidden="true">→</span></a>
       </aside>
     </section>
 
@@ -39,5 +39,5 @@
   </main>
 
   <nav class="bottom-nav" aria-label="Navegación móvil"><a class="active" href="routes.html"><span>⌂</span><small>Aprender</small></a><a href="index.html#lab"><span>♩</span><small>Explorar</small></a><button id="mobile-practice"><span>✓</span><small>Practicar</small></button><button id="mobile-progress"><span>◔</span><small>Progreso</small></button></nav>
-  <div class="snackbar" id="snackbar" role="status" aria-live="polite"></div><script type="module" src="routes.js?v=27"></script>
+  <div class="snackbar" id="snackbar" role="status" aria-live="polite"></div><script type="module" src="routes.js?v=56"></script>
 </body></html>

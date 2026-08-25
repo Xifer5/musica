@@ -1,0 +1,39 @@
+.lesson-row {
+  grid-template-columns: 54px minmax(0, 1fr) 94px 70px 110px;
+}
+
+.lesson-state {
+  justify-self: start;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--surface-high);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lesson-row.is-complete .lesson-state {
+  background: var(--primary-container);
+  color: var(--primary);
+}
+
+.lesson-row.is-complete .lesson-index {
+  color: var(--primary);
+  font-size: 16px;
+}
+
+.lesson-row.is-started .lesson-state {
+  background: color-mix(in srgb, var(--tertiary) 18%, var(--surface));
+  color: var(--on-surface);
+}
+
+@media (max-width: 700px) {
+  .lesson-row {
+    grid-template-columns: 32px 1fr auto;
+  }
+
+  .lesson-state {
+    grid-column: 3;
+  }
+}
