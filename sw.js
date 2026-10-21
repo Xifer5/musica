@@ -1,4 +1,4 @@
-const CACHE='la-clave-v56';
+const CACHE='la-clave-v59';
 const CORE=['./','./routes.html','./routes.css','./routes.js','./routes-data.js','./styles.css','./preferences.js','./guitar-ui.js','./notation-domain.js','./pwa.js','./settings-domain.js','./index.html','./app.js','./music-domain.js','./lesson.html','./lesson.css','./lesson.js','./lesson-data.js','./advanced-labs.js','./lab-extra.css','./explore.html','./explore.css','./explore.js','./scale-domain.js','./key-signatures.html','./key-signatures.css','./key-signatures.js','./key-signature-domain.js','./harmony.html','./harmony.css','./harmony.js','./harmony-domain.js','./functions.html','./functions.css','./functions.js','./function-domain.js','./inversions.html','./inversions.css','./inversions.js','./inversion-domain.js','./sevenths.html','./sevenths.css','./sevenths.js','./seventh-domain.js','./modes.html','./modes.css','./modes.js','./mode-domain.js','./secondary-dominants.html','./secondary-dominants.css','./secondary-dominants.js','./secondary-dominant-domain.js','./modal-interchange.html','./modal-interchange.css','./modal-interchange.js','./modal-interchange-domain.js','./tritone.html','./tritone.css','./tritone.js','./tritone-domain.js','./reharmonization.html','./reharmonization.css','./reharmonization-mobile.css','./reharmonization.js','./reharmonization-domain.js','./practice.html','./practice.css','./practice.js','./practice-domain.js','./progress.html','./progress.css','./progress.js','./progress-domain.js','./settings.html','./settings.css','./settings.js','./manifest.webmanifest','./app-icon.svg'];
 CORE.push('./m3-system.css');
 CORE.push('./arrangement.html','./arrangement.css','./arrangement.js','./arrangement-domain.js');
@@ -41,6 +41,19 @@ CORE.push('./lesson.js?v=53','./advanced-labs.js?v=53','./piano-domain.js?v=53',
 CORE.push('./routes.js?v=54','./routes-data.js?v=54','./learning-progress-domain.js?v=54','./routes.html');
 CORE.push('./routes.js?v=55','./routes-data.js?v=55','./learning-progress-domain.js?v=55','./routes.css','./routes-progress.css','./routes.html');
 CORE.push('./lesson.js?v=56','./lesson-data.js?v=56','./advanced-labs.js?v=56','./major-chord-learning-domain.js?v=56','./routes.js?v=56','./routes-data.js?v=56','./learning-progress-domain.js?v=56','./progress-domain.js','./routes.html');
-self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting())));
+CORE.push('./pwa.js','./m3-system.css','./routes-progress.css','./offline.html','./lesson.html','./lesson.js?v=56','./lesson-data.js?v=56','./lesson-learning-metadata.js?v=57','./advanced-labs.js?v=56','./major-chord-learning-domain.js?v=56','./routes.html','./routes.js?v=56','./routes-data.js?v=56','./learning-progress-domain.js?v=56','./progress-domain.js');
+CORE.push('./content/guitarra/01-postura-relajacion.md','./content/guitarra/02-mano-izquierda.md','./content/guitarra/03-cejillas-caged.md','./content/guitarra/04-mano-derecha.md','./content/guitarra/05-tablatura-pentagrama.md','./content/guitarra/06-plan-practica.md');
+CORE.push('./content/intermedio/02-menor-armonica-melodica.md');
+CORE.push('./content/intermedio/03-cadencias.md');
+CORE.push('./content/intermedio/04-conduccion-voces.md');
+CORE.push('./content/avanzado/02-extensiones-tensiones.md');
+CORE.push('./content/avanzado/03-dominante-alterado.md');
+CORE.push('./content/avanzado/04-modulacion.md');
+CORE.push('./content/avanzado/05-desarrollo-motivos.md');
+CORE.push('./content/avanzado/06-improvisacion-notas-guia.md');
+CORE.push('./curriculum-reading.html','./curriculum-reading.js');
+CORE.push('./guitar-reading.html','./guitar-reading.js');
+self.addEventListener('message',event=>{if(event.data?.type==='SKIP_WAITING')self.skipWaiting()});
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch',event=>{if(event.request.method!=='GET')return;event.respondWith(fetch(event.request).then(response=>{const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy));return response}).catch(()=>caches.match(event.request).then(hit=>hit||caches.match('./routes.html'))))});
+self.addEventListener('fetch',event=>{if(event.request.method!=='GET')return;event.respondWith(fetch(event.request).then(response=>{const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy));return response}).catch(()=>caches.match(event.request).then(hit=>hit||caches.match('./offline.html'))))});

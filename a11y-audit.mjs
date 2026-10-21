@@ -1,0 +1,4 @@
+import {readFileSync,readdirSync} from 'node:fs';
+const files=readdirSync('.').filter(file=>file.endsWith('.html'));const issues=[];
+for(const file of files){const html=readFileSync(file,'utf8');for(const m of html.matchAll(/<img\b([^>]*)>/gi)){if(!/\balt\s*=/.test(m[1]))issues.push(`${file}: imagen sin alt`)}for(const m of html.matchAll(/<button\b([^>]*)>([\s\S]*?)<\/button>/gi)){const attrs=m[1],text=m[2].replace(/<[^>]+>/g,'').trim();if(!text&&!/aria-label\s*=|title\s*=/.test(attrs))issues.push(`${file}: botón sin nombre accesible`)}for(const m of html.matchAll(/<input\b([^>]*)>/gi)){const attrs=m[1];if(!/type\s*=\s*["'](hidden|submit|button|checkbox|radio)/i.test(attrs)&&!/aria-label\s*=|aria-labelledby\s*=|id\s*=/.test(attrs))issues.push(`${file}: input sin etiqueta o nombre`)}}
+console.log(`A11y audit: ${files.length} páginas · ${issues.length} hallazgos`);if(issues.length)console.log(issues.slice(0,40).join('\n'));
